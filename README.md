@@ -1,5 +1,13 @@
 # django_api_stripe
 
-##Test this repository
+#Test this repository
 
-https://github.com/anoleose/django_api_stripe.git
+git clone https://github.com/anoleose/django_api_stripe.git
+cd django_api_stripe 
+python -m venv venv
+linux os: source venv/bin/activate
+windows os: venv\Scripts\activate 
+pip install django 
+pip install -r requirements.txt
+
+
