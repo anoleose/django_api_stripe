@@ -28,7 +28,7 @@ def detail_item(request, id):
 	template = loader.get_template('items/detail_item.html')
 	return HttpResponse(template.render(context, request))
 
-#@csrf_exempt
+@csrf_exempt
 def checkout(request, id):
 	item = get_object_or_404(Item, id=id)
 	amount = int(item.price*100)
