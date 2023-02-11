@@ -1,0 +1,14 @@
+{% load static %}
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/checkout.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    
+    {% block content %}
+
+    {% endblock %}
+
+  </body>
+</html>

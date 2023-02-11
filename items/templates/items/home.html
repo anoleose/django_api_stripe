@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}Items{% endblock %}
+{% block content %}
+<h1>Items</h1>
+{% for item in items %}
+<div>
+	<h3><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></h3>
+	<p>{{ item.description }}</p>
+	<strong>{{ item.price }}</strong>
+</div>
+{% endfor %}
+
+{% endblock %}

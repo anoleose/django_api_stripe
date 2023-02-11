@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title%}Buy {{item.name}} {{ item.id }}{% endblock %}
+{% block content %}
+<script src="https://js.stripe.com/v3/"></script>
+<div>
+	<h3>{{ item.name }}</h3>
+	<p>{{ item.description }}</p>
+	<strong>{{ item.price }} &#8381;</strong> <button id="payment-form">Buy</button> 
+</div>
+
+<script>
+
+const buy_button = document.getElementById("payment-form")
+buy_button.addEventListener('click', () => {
+ 
+  fetch('/buy/{{item.id}}/')
+  .then((result) => { return result.json() })
+  .then((data) => {
+    var stripe = Stripe(data.stripe_public_key);
+    elements = stripe.elements( {locale: 'ru'});
+    stripe.redirectToCheckout({
+    sessionId: data.session_id
+
+    }).then(function (result){
+
+    });
+
+  });
+  
+
+});
+
+</script>  
+
+{% endblock %}
